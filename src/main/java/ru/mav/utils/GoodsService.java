@@ -18,7 +18,6 @@ public class GoodsService {
         sessionFactory = HibernateUtil.getSessionFactory();
     }
         
-
  public List<Goods> getAll() {      
     Session session = sessionFactory.openSession();
     List<Goods> result = session.createCriteria(Goods.class).list();
@@ -50,9 +49,19 @@ public class GoodsService {
     session.delete(goods);
     session.flush();
     session.getTransaction().commit();
+    session.close();        
+ }
+    
+    public void saveGoods(Goods goods) {     
+    Session session = HibernateUtil.getSessionFactory().openSession();
+    session.beginTransaction();
+    session.update(goods);
+    session.flush();
+    session.getTransaction().commit();
     session.close();
         
- }   
- 
+ }
+    
+    
 
 }

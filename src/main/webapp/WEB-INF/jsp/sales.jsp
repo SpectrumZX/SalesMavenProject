@@ -32,15 +32,14 @@
                         <td><c:out value="${sale.number}" /></td>
                         <td><c:out value="${sale.cost} руб." /></td>
                         <td><c:out value="${sale.date}" /></td>
-                        <td><a href="#">Edit</a></td>
-                        <td><a href="del_sales.htm?id=${sale.id}">Delete</a></td>
-                        <td><a href="#">Add</a></td>
+                        <td><a href="saleEdit.htm?id=${sale.id}">Edit</a></td>
+                        <td><a href="delSale.htm?id=${sale.id}">Delete</a></td>
                     </tr>
                 </c:forEach>
             </tbody>
         </table>
         <p/>
-        <a href="#">Добавить продажу</a> <p/>
+        <a href="saleNew.htm">Добавить продажу</a> <p/>
         <a href="goods.htm">Список товаров</a>
 
     </body>

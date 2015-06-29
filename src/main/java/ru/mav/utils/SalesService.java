@@ -31,4 +31,22 @@ public class SalesService {
     session.getTransaction().commit();
     session.close();       
  }   
+    public void addNewSale(Sales sale) {     
+    Session session = HibernateUtil.getSessionFactory().openSession();
+    session.beginTransaction();
+    session.save(sale);
+    session.flush();
+    session.getTransaction().commit();
+    session.close();
+        
+ }
+     public void saveSale(Sales sale) {     
+    Session session = HibernateUtil.getSessionFactory().openSession();
+    session.beginTransaction();
+    session.update(sale);
+    session.flush();
+    session.getTransaction().commit();
+    session.close();
+        
+ }
 }
