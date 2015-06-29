@@ -31,15 +31,15 @@
    <td><c:out value="${goods.name}" /></td>
    <td><c:out value="${goods.price} руб." /></td>
    <td><c:out value="00" /></td>
-   <td><a href="${editUrl}">Edit</a></td>
-   <td><a href="${deleteUrl}">Delete</a></td>
-   <td><a href="${addUrl}">Add</a></td>
+   <td><a href="#">Edit</a></td>
+   <td><a href="del_goods.htm?id=${goods.id}">Delete</a></td>
+   <td><a href="#">Add</a></td>
   </tr>
  </c:forEach>
  </tbody>
 </table>
  <p/>
- <a href="${addUrl}">Создать новый товар</a><p/>
+ <a href="#">Создать новый товар</a><p/>
   <a href="sales.htm">Список продаж</a>
 
  

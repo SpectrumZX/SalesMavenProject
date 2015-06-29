@@ -10,7 +10,7 @@ import ru.mav.entity.Sales;
 @Transactional
 public class SalesService {
    
- public List<Sales> getAll() {      
+  public List<Sales> getAll() {      
     Session session = HibernateUtil.getSessionFactory().openSession();
     List<Sales> result = session.createCriteria(Sales.class).list();
     return result;    
@@ -22,5 +22,13 @@ public class SalesService {
     return sales;    
  }
  
-
+  public void deleteSales(Integer id) {     
+    Session session = HibernateUtil.getSessionFactory().openSession();
+    session.beginTransaction();
+    Sales sale = getSalesById(id);
+    session.delete(sale);
+    session.flush();
+    session.getTransaction().commit();
+    session.close();       
+ }   
 }

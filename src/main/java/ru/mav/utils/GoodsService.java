@@ -43,7 +43,16 @@ public class GoodsService {
     session.close();
         
  }
-    
+    public void deleteGoods(Integer id) {     
+    Session session = HibernateUtil.getSessionFactory().openSession();
+    session.beginTransaction();
+    Goods goods = getGoodsById(id);
+    session.delete(goods);
+    session.flush();
+    session.getTransaction().commit();
+    session.close();
+        
+ }   
  
 
 }

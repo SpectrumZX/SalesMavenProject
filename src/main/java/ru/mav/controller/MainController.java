@@ -4,12 +4,13 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import ru.mav.utils.SalesService;
 
 
 
 @Controller
-//@RequestMapping("/main")
 public class MainController {
 
  @Resource(name="articlesService")
@@ -17,18 +18,31 @@ public class MainController {
  @Resource(name="salesService")
  private SalesService salesService;
  
- @RequestMapping("/index.htm")
+ @RequestMapping("/goods.htm")
  public String getGoodsList(Model model) {
  model.addAttribute("goodsList", goodsService.getAll());
  
- return "index";
+ 
+ return "goods";
  }
  
  @RequestMapping("/sales.htm")
- public String getSalesList(Model model) {
-  
+ public String getSalesList(Model model) { 
  model.addAttribute("salesList", salesService.getAll());
+ return "sales";
+ }
  
+ @RequestMapping(value = "/del_goods.htm", method = RequestMethod.GET)
+ public String delGoods(@RequestParam("id") Integer id, Model model) {
+ goodsService.deleteGoods(id);
+ model.addAttribute("goodsList", goodsService.getAll());
+ return "goods";
+ }
+ 
+ @RequestMapping(value = "/del_sales.htm", method = RequestMethod.GET)
+ public String delSales(@RequestParam("id") Integer id, Model model) {
+ salesService.deleteSales(id);
+ model.addAttribute("salesList", salesService.getAll());
  return "sales";
  }
 
