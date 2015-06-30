@@ -3,6 +3,8 @@ package ru.mav.utils;
 import java.util.List;
 import javax.transaction.Transactional;
 import org.hibernate.Session;
+import org.hibernate.criterion.Order;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Service;
 import ru.mav.entity.Sales;
 
@@ -12,7 +14,13 @@ public class SalesService {
    
   public List<Sales> getAll() {      
     Session session = HibernateUtil.getSessionFactory().openSession();
-    List<Sales> result = session.createCriteria(Sales.class).list();
+    List<Sales> result = session.createCriteria(Sales.class).addOrder(Order.asc("id")).list();
+    return result;    
+ }
+   // возвращает список всех продаж одного товара
+    public List<Sales> selectSales(Integer id) {      
+    Session session = HibernateUtil.getSessionFactory().openSession();
+    List<Sales> result = session.createCriteria(Sales.class).add(Restrictions.eq("goodsId", id)).addOrder(Order.asc("id")).list();
     return result;    
  }
  

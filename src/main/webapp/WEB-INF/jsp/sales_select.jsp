@@ -12,7 +12,7 @@
     </head>
     <body>
         <div class="bod">
-        <h1>Продажи</h1>
+        <h1>Продажи товара: ${goods_name}</h1>
     
         <table>
             <thead>
@@ -29,7 +29,7 @@
                 <c:forEach items="${salesList}" var="sale">
                     <tr>
                         <td><c:out value="${sale.id}" /></td>
-                        <td><c:out value="${sale.getNameOfGoods()}" /></td>
+                        <td><c:out value="${goods_name}" /></td>
                         <td><c:out value="${sale.number}" /></td>
                         <td><c:out value="${sale.cost} руб." /></td>
                         <td><c:out value="${sale.date}" /></td>
@@ -41,8 +41,8 @@
         </table>
    
         <p/>
-        <a href="saleNew.htm">Добавить продажу</a> <p/>
-        <a href="goods.htm">Список товаров</a>
+        <a href="goods.htm">Список товаров</a><p/>
+         <a href="sales.htm">Список продаж</a>
 </div>
     </body>
 </html>

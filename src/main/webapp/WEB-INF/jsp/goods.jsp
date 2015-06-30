@@ -5,12 +5,13 @@
 <html>
 <head>
     <style>
-   <%@include file='./css/styles.css' %>
+   <%@include file='./css/list.css' %>
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Товары</title>
 </head>
 <body>
+    <div class="bod">
 <h1>Товары</h1>
  
 <table>
@@ -19,7 +20,7 @@
    <th>id</th>
    <th>Наименование</th>
    <th>Цена</th>
-    <th>Кол-во продаж</th>
+    <th>Продажи (шт)</th>
    <th colspan="3"></th>
   </tr>
  </thead>
@@ -30,7 +31,7 @@
    </td>
    <td><c:out value="${goods.name}" /></td>
    <td><c:out value="${goods.price} руб." /></td>
-   <td><c:out value="00" /></td>
+   <td><a href="sales_select.htm?id=${goods.id}">${goods.getCountSales()}</a></td>
    <td><a href="goodsEdit.htm?id=${goods.id}">Edit</a></td>
    <td><a href="delGoods.htm?id=${goods.id}">Delete</a></td>
   </tr>
@@ -41,6 +42,6 @@
  <a href="goodsNew.htm">Создать новый товар</a><p/>
   <a href="sales.htm">Список продаж</a>
 
- 
+ </div>
 </body>
 </html>

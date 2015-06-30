@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name="goods"
@@ -13,22 +14,20 @@ import javax.persistence.Table;
 )
 public class Goods  implements java.io.Serializable {
 
-
      private Integer id;
      private String name;
      private int price;
-
+     private Integer count_sales;  // количесвто продаж товара
+ 
     public Goods() {
     }
-
+    
     public Goods(String name, int price) {
        this.name = name;
        this.price = price;
     }
    
-     @Id @GeneratedValue(strategy=IDENTITY)
-
-    
+    @Id @GeneratedValue(strategy=IDENTITY)  
     @Column(name="id", unique=true, nullable=false)
     public Integer getId() {
         return this.id;
@@ -57,8 +56,14 @@ public class Goods  implements java.io.Serializable {
     public void setPrice(int price) {
         this.price = price;
     }
+    @Transient
+    public Integer getCountSales() {
+    return count_sales;
+    }
 
-
+    public void setCountSales(Integer count_sales) {
+       this.count_sales = count_sales;
+    }
 
 
 }

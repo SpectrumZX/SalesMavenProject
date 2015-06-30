@@ -4,7 +4,7 @@ import java.util.List;
 import javax.transaction.Transactional;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.criterion.Restrictions;
+import org.hibernate.criterion.Order;
 import org.springframework.stereotype.Service;
 import ru.mav.entity.Goods;
 
@@ -20,7 +20,7 @@ public class GoodsService {
         
  public List<Goods> getAll() {      
     Session session = sessionFactory.openSession();
-    List<Goods> result = session.createCriteria(Goods.class).list();
+    List<Goods> result = session.createCriteria(Goods.class).addOrder(Order.asc("id")).list();
     session.close();
     return result;    
  }
@@ -28,7 +28,6 @@ public class GoodsService {
   public Goods getGoodsById(Integer id) {      
     Session session = sessionFactory.openSession();
     Goods goods = (Goods) session.get(Goods.class, id);
- //   session.createCriteria(Goods.class).add(Restrictions.eq("goods_id", 10));
     session.close();
     return goods;    
  }
