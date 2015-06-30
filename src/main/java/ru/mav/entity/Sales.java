@@ -80,6 +80,7 @@ public class Sales implements java.io.Serializable {
     public void setDate(String date) {
         this.date = date;
     }
+
     @Transient
     public String getNameOfGoods() {
         return nameOfGoods;
