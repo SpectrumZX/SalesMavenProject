@@ -41,7 +41,8 @@
         </table>
    
         <p/>
-        <a href="saleNew.htm">Добавить продажу</a> <p/>
+        <a href="goodsNew.htm">Добавить новый товар</a><p/>
+        <a href="saleNew.htm">Добавить новую продажу</a> <p/>
         <a href="goods.htm">Список товаров</a>
 </div>
     </body>

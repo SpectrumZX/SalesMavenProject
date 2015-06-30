@@ -39,7 +39,8 @@
  </tbody>
 </table>
  <p/>
- <a href="goodsNew.htm">Создать новый товар</a><p/>
+ <a href="goodsNew.htm">Добавить новый товар</a><p/>
+ <a href="saleNew.htm">Добавить новую продажу</a> <p/>
   <a href="sales.htm">Список продаж</a>
 
  </div>
